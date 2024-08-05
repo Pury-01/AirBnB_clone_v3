@@ -59,6 +59,17 @@ test_file_storage.py'])
         self.assertTrue(len(FileStorage.__doc__) >= 1,
                         "FileStorage class needs a docstring")
 
+    def test_get(self):
+            """tests the get method"""
+            self.assertIsNotNone(self.storage.get(User, "8712"))
+            self.assertIsNone(self.storage.get(User, "45737"))
+
+    def test_count(self):
+        """tests count method"""
+        self.assertEqual(self.storage.count(User), 1)
+        self.assertGreaterEqual(self.storage.count(), 1)
+
+
     def test_fs_func_docstrings(self):
         """Test for the presence of docstrings in FileStorage methods"""
         for func in self.fs_f:
@@ -113,3 +124,6 @@ class TestFileStorage(unittest.TestCase):
         with open("file.json", "r") as f:
             js = f.read()
         self.assertEqual(json.loads(string), json.loads(js))
+
+if __name__ == "__main__":
+    unittest.main()
