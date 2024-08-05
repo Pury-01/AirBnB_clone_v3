@@ -30,7 +30,7 @@ class TestPlaceDocs(unittest.TestCase):
     def test_pep8_conformance_test_place(self):
         """Test that tests/test_models/test_place.py conforms to PEP8."""
         style = pycodestyle.StyleGuide(quiet=True)
-        result = styel.check_files(['tests/test_models/test_place.py'])
+        result = style.check_files(['tests/test_models/test_place.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 

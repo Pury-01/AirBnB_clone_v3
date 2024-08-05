@@ -29,7 +29,7 @@ class TestUserDocs(unittest.TestCase):
 
     def test_pep8_conformance_test_user(self):
         """Test that tests/test_models/test_user.py conforms to PEP8."""
-        style = pycodetyle.StyleGuide(quiet=True)
+        style = pycodestyle.StyleGuide(quiet=True)
         result = style.check_files(['tests/test_models/test_user.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")

@@ -67,7 +67,9 @@ class DBStorage:
 
     def count(self, cls=None):
         """method to count the number of objects in storage"""
-        return len(self.all(cls) if cls else (self.all())
+        if cls: 
+            return len(self.all(cls))
+        return (self.all())
 
     def delete(self, obj=None):
         """delete from the current database session obj if not None"""
